@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         currentValue = Int(roundedValue)
         startNewGame()
         
-        
         let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
         slider.setThumbImage(thumbImageNormal, for: .normal)
         
@@ -40,14 +39,13 @@ class ViewController: UIViewController {
         let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
         slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
         
-        
         let trackRightImage = #imageLiteral(resourceName: "SliderTrackRight")
         let trackRightIResizable = trackRightImage.resizableImage(withCapInsets: insets)
         slider.setMaximumTrackImage(trackRightIResizable, for: .normal)
     
     }
     
-    @IBAction func showAlert(){
+    @IBAction func showAlert() {
         
         let difference = abs(targetValue - currentValue)
         var points = 100 - difference
@@ -57,7 +55,7 @@ class ViewController: UIViewController {
         if difference == 0 {
             title = "Perfect!"
             points += 100
-        } else if difference < 5{
+        } else if difference < 5 {
             title = " You almost had it!"
             if difference == 1 {
                 points += 50
@@ -82,10 +80,9 @@ class ViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         
-        
     }
     
-    @IBAction func sliderMoved (_ slider: UISlider){
+    @IBAction func sliderMoved (_ slider: UISlider) {
         let roundedValue = slider.value.rounded()
         currentValue = Int(roundedValue)
     }
@@ -96,18 +93,15 @@ class ViewController: UIViewController {
         currentValue = 50
         slider.value = Float(currentValue)
         updadeLabel()
-        
-        
-        
-        
     }
+    
     func updadeLabel() {
         targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
         roundLabel.text = String(round)
     }
     
-   @IBAction func startNewGame  () {
+   @IBAction func startNewGame() {
         score = 0
         round = 0
         startNewRound()
